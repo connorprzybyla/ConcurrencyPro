@@ -15,6 +15,9 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .white
         setupStackView()
+        
+        let manager = GenericOperationManager(operationQueue: OperationQueue())
+        manager.executeChain()
     }
     
     // MARK: - Private
