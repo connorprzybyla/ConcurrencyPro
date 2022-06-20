@@ -1,10 +1,12 @@
-This project contains a collection of examples working with concurrency and multithreading on iOS platforms.
+This project contains a collection of examples working with concurrency and multithreading on Apple platforms.
 
 Including:
 
-- DispatchQueue (serial and concurrent)
-- DispatchGroup
 - NSLock
-- Actor
-- OperationQueue
+- DispatchQueue (serial and concurrent w/ barrier)
+- DispatchGroup
 - Operation
+- OperationQueue
+- async await (new to Swift 5.5)
+- Actor (new to Swift 5.5)
+- Distrubued Actor (new to Swift 5.7)

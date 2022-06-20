@@ -9,13 +9,12 @@ import Foundation
 
 /// Concurrency is a fundamental to computer science and a key aspect to performant iOS applications. Although Apple has done some excellent work to assist developers with issues relating
 /// to concurrency and multithreading, it is up to us developers to follow best practices and ensure our code is guarenteed to execute as expected even in unknown circumstances.
-/// When working with shared resources, remeber to always ask yourself, what if the run loop of the application decides it wants to perform a context switch to another thread that is accessing the same resource in memory as the previous?
 
-// MARK: - Solution #1 - DispatchQueue sync - Not Accepted
+// MARK: - Solution #1 - DispatchQueue sync - (Accepted)
 
-/// Although the example below enforces mutual execlusion. It is most certainly not optimal. When we use sync, we are effectively blocking the current thread.
-/// We should never block the current thread unless we absolutely have to. This is the most naive approach to mutual execlusion. With a serial queue, we cannot use concurrency to
-/// imporve performance. This is a huge drawback to this implementation approach.
+/// Although the example below enforces mutual execlusion. there are some very notable drawbacks. When we use sync, we are effectively blocking the current thread
+/// execution.
+/// With a serial queue, we cannot use concurrency to improve performance. This is a huge drawback to this implementation approach.
 
 final class GenericArrayNaive<T> {
     private var array: [T]?
@@ -42,7 +41,7 @@ final class GenericArrayNaive<T> {
     }
 }
 
-// MARK: - Solution #2 - DispatchQueue async - Accepted
+// MARK: - Solution #2 - DispatchQueue async - (Accepted)
 
 /// Here we have a concurrent dispatch queue that we use to keep our critical sections protected. In the case of appending to the array, we simply wrap the append in a block that will
 /// ensure that the item will asyncronously execute at some point in time with a specific flag type `barrier`. This flag will block any thread attempting to read/write to the resources in this block.
@@ -72,7 +71,7 @@ final class GenericArray<T> {
     }
 }
 
-// MARK: - Solution #3 - NSLock - Accepted
+// MARK: - Solution #3 - NSLock - (Accepted)
 
 /// Prior to Actors, NSLock was perhaps the easiest and most lightweight way to protect critical sections and enforce mutual exclusion in an iOS application.
 /// We can avoid the overhead that DispatchQueue's introduce and just rely of NSLock instead for mutual exclusion since at its core its really just a mutex. Also understand NSRecusiveLock() and why it was introduced as a way to prevent
@@ -106,9 +105,11 @@ final class GenericArrayWithNSLock<T> {
     }
 }
 
-// MARK: - Solution #4 - Swift Actors - Accepted
+// MARK: - Solution #4 - Swift Actors - (Accepted)
 
 /// The latest and greatest from Swift 5.5. Use the keyword `actor` to enforce thread-safety. Threads are unable to access the resources in parallel.
+/// Swift 5.7 has introduced the concept of distributed actors, which allows them to work over RPC! Simply use `distributed actor` and `distributed func`
+/// if you want to experiment with this distributed form.
 
 final actor GenericArrayActor<T> {
     private var array: [T]?
@@ -127,4 +128,3 @@ final actor GenericArrayActor<T> {
         array?[index]
     }
 }
-

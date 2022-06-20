@@ -19,6 +19,7 @@
 		5A14BFB9281A27140068EB46 /* URLSession+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A14BFB8281A27140068EB46 /* URLSession+Extensions.swift */; };
 		5A14C075281C64C30068EB46 /* GenericArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A14C074281C64C30068EB46 /* GenericArray.swift */; };
 		5A2D09A0282044480041087B /* GenericOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A2D099F282044480041087B /* GenericOperation.swift */; };
+		5AE6A7B62860E523004AD839 /* GenericOperationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AE6A7B52860E523004AD839 /* GenericOperationManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +56,7 @@
 		5A14BFB8281A27140068EB46 /* URLSession+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLSession+Extensions.swift"; sourceTree = "<group>"; };
 		5A14C074281C64C30068EB46 /* GenericArray.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericArray.swift; sourceTree = "<group>"; };
 		5A2D099F282044480041087B /* GenericOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericOperation.swift; sourceTree = "<group>"; };
+		5AE6A7B52860E523004AD839 /* GenericOperationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericOperationManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -148,6 +150,7 @@
 				5A14BFB52819F7120068EB46 /* ImageProcessor.swift */,
 				5A14C074281C64C30068EB46 /* GenericArray.swift */,
 				5A2D099F282044480041087B /* GenericOperation.swift */,
+				5AE6A7B52860E523004AD839 /* GenericOperationManager.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -283,6 +286,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5A2D09A0282044480041087B /* GenericOperation.swift in Sources */,
+				5AE6A7B62860E523004AD839 /* GenericOperationManager.swift in Sources */,
 				5A14BF8A2819DCB90068EB46 /* ViewController.swift in Sources */,
 				5A14BFB9281A27140068EB46 /* URLSession+Extensions.swift in Sources */,
 				5A14BF862819DCB90068EB46 /* AppDelegate.swift in Sources */,
